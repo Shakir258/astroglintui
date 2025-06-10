@@ -1,0 +1,145 @@
+
+.travel-search-container {
+    max-width: 100vw;
+    margin: 0 auto;
+    padding: 20px 20px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+.search-form {
+    position: relative;
+}
+
+.search-input-wrapper {
+    margin: 0 auto;
+    max-width: 800px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    background: white;
+    border-radius: 50px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.search-input-wrapper:hover {
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+    transform: translateY(-2px);
+}
+
+.search-icon {
+    padding: 0 20px;
+    font-size: 1.2rem;
+    color: #666;
+}
+
+.search-input {
+    flex: 1;
+    padding: 18px 0;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    color: #333;
+    background: transparent;
+}
+
+.search-input::placeholder {
+    color: #999;
+}
+
+.search-button {
+    padding: 18px 30px;
+    background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+    color: white;
+    border: none;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.search-button:hover {
+    background: linear-gradient(45deg, #ee5a24, #ff6b6b);
+    transform: scale(1.05);
+}
+
+.suggestions-dropdown {
+    margin: 20px auto;
+    max-width: 800px;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: white;
+    border-radius: 0 0 20px 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.suggestion-item {
+    padding: 15px 20px;
+    cursor: pointer;
+    border-bottom: 1px solid #eee;
+    transition: background-color 0.2s ease;
+}
+
+.suggestion-item:hover {
+    background-color: #f8f9fa;
+}
+
+.suggestion-item:last-child {
+    border-bottom: none;
+}
+
+
+
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .travel-search-container {
+        padding: 20px 15px;
+    }
+
+    .title {
+        font-size: 2rem;
+    }
+
+    .search-input-wrapper {
+        flex-direction: column;
+        border-radius: 20px;
+    }
+
+    .search-button {
+        width: 100%;
+        border-radius: 0 0 20px 20px;
+    }
+
+    
+}
+
+/* Custom Scrollbar */
+.suggestions-dropdown::-webkit-scrollbar {
+    width: 6px;
+}
+
+.suggestions-dropdown::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.suggestions-dropdown::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 3px;
+}
+
+.suggestions-dropdown::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
