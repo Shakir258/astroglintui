@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-function Header() {
+function Header( {setShowPopup} ) {
     return (
         <div className='bg-white flex justify-between items-center h-20 w-[100vw] px-10'>
             {/* Logo */}
@@ -20,8 +20,7 @@ function Header() {
 
             {/* Buttons */}
             <div className='flex gap-5 justify-center items-center'>
-                <Link to="/login" className='text-white bg-black py-2 px-5 rounded-full hover:bg-gray-800'>Login</Link>
-                <Link to="/signup" className='text-white bg-black py-2 px-5 rounded-full hover:bg-gray-800'>SignUp</Link>
+                <button className='text-white bg-black py-2 px-5 rounded-full hover:bg-gray-800' onClick={() => setShowPopup(true)}>Login/SignUp</button>
             </div>
         </div>
     );
