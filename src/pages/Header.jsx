@@ -20,7 +20,7 @@ function Header( {setShowPopup} ) {
 
             {/* Buttons */}
             <div className='flex gap-5 justify-center items-center'>
-                <button className='text-white bg-black py-2 px-5 rounded-full hover:bg-gray-800' onClick={() => setShowPopup(true)}>Login/SignUp</button>
+                <button className='text-white bg-[#2f4962] py-2 px-5 rounded-full hover:bg-gray-800' onClick={() => setShowPopup(true)}>Login/SignUp</button>
             </div>
         </div>
     );

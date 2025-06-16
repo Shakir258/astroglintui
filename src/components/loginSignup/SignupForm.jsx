@@ -1,28 +1,19 @@
 import React, { useState } from 'react';
 import { login } from '../../services/authService';
-import { useNavigate } from 'react-router-dom';
-import '../../pages/login/login.css'; // CSS file
+import '../../pages/login.css'; // CSS file
 
 function LoginForm( { setIsLogin } ) {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [firstName, setFirstName] = useState('');
+    const [lastName, setLastName] = useState('');
+    const [number, setNumber] = useState('');
     const [error, setError] = useState('');
-    const navigate = useNavigate();
 
     const submitHandler = async (e) => {
         e.preventDefault();
         setError('');
 
-        try {
-            const response = await login({ userName: email, password });
-            localStorage.setItem('token', response.data.token);
-            navigate('/dashboard');
-            setEmail('');
-            setPassword('');
-        } catch (err) {
-            console.error("Login Failed:", err);
-            setError(err.response?.data?.message || 'Login failed');
-        }
     };
 
     return (
@@ -32,7 +23,7 @@ function LoginForm( { setIsLogin } ) {
                 <div className="login-form-section">
                     <div className="login-form-box">
                         <h1 className="login-title">Sign Up</h1>
-                        <h3 className="login-subtitle">Sign in to continue to our application</h3>
+                        <h3 className="login-subtitle">Sign up to continue to our application</h3>
 
                         <form className="login-form" onSubmit={submitHandler}>
                             <input
@@ -51,14 +42,39 @@ function LoginForm( { setIsLogin } ) {
                                 placeholder="Please Enter Password ..."
                                 required
                             />
-                            <p className="login-forgot">Forget Password</p>
+                            <div className='flex gap-3'>
+                            <input
+                                type="text"
+                                value={firstName}
+                                onChange={(e) => setFirstName(e.target.value)}
+                                className="login-input"
+                                placeholder="First name ..."
+                                required
+                            />
+                            <input
+                                type="text"
+                                value={lastName}
+                                onChange={(e) => setLastName(e.target.value)}
+                                className="login-input"
+                                placeholder="Last name ..."
+                                required
+                            />
+                            </div>
+                            <input
+                                type="number"
+                                value={number}
+                                onChange={(e) => setNumber(e.target.value)}
+                                className="login-input"
+                                placeholder="Please Enter phone no ..."
+                                required
+                            />
                             {error && <p className="login-error">{error}</p>}
                             <button className="login-button">Sign In</button>
                         </form>
                     </div>
                     <h3 className="login-bottom-text"
                         onClick={() => setIsLogin(true)}>
-                        Not a Member? <span className="login-signup-link">Sign up</span>
+                        Already have an account? <span className="login-signup-link">Login</span>
                     </h3>
                 </div>
             </div>

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { login } from '../../services/authService';
 import { useNavigate } from 'react-router-dom';
-import '../../pages/login/login.css'; // CSS file
+import '../../pages/login.css'; // CSS file
 
 function LoginForm( { setIsLogin } ) {
     const [email, setEmail] = useState('');
@@ -15,12 +15,15 @@ function LoginForm( { setIsLogin } ) {
 
         try {
             const response = await login({ userName: email, password });
+            console.log(response);
             localStorage.setItem('token', response.data.token);
-            navigate('/dashboard');
+            // navigate('/dashboard');
             setEmail('');
             setPassword('');
         } catch (err) {
+            
             console.error("Login Failed:", err);
+            
             setError(err.response?.data?.message || 'Login failed');
         }
     };
@@ -36,6 +39,7 @@ function LoginForm( { setIsLogin } ) {
 
                         <form className="login-form" onSubmit={submitHandler}>
                             <input
+                                name="email"
                                 type="email"
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
@@ -45,6 +49,7 @@ function LoginForm( { setIsLogin } ) {
                             />
                             <input
                                 type="password"
+                                name="password"
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}
                                 className="login-input"

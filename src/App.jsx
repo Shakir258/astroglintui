@@ -2,11 +2,12 @@ import { Routes, Route } from "react-router-dom";
 import Header from "./pages/Header";
 import Contact from "./pages/Contact";
 import "./index.css";
-import Prediction from "./pages/Prediction";
+
 import Compatiblity from "./pages/Compatiblity";
 import AuthPopup from "./components/loginSignup/AuthPopup";
 import SearchBar from "./components/SearchBar";
 import { useState } from "react";
+import Prediction from "./components/Prediction";
 
 function App() {
   const [showPopup, setShowPopup] = useState(false);
@@ -21,6 +22,10 @@ function App() {
         <Route path="/compatiblity" element={<Compatiblity />} />
         <Route path="/contact" element={<Contact />} />
       </Routes>
+      <div className="flex ">
+        <Prediction/>
+        <Prediction/>
+      </div>
     </div>
   );
 }

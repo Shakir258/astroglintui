@@ -1,0 +1,50 @@
+.prediction-section{
+    background: white;
+    width: 50%;
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    border-radius: 3px;
+    color: black;
+    box-shadow: 10px 10px 5px 0px rgb(212, 212, 212);
+
+}
+
+.prediction-title{
+    font-size: 2.5rem;
+    margin-bottom: 1.25rem;
+}
+
+
+.prediction-input {
+    width: 100%;
+    height: 3rem;
+    background-color: rgb(226, 226, 226);
+    border-radius: 3px;
+    padding: 0 1.25rem;
+    border: none;
+    outline: none;
+    margin-bottom: 25px;
+    color: black;
+}
+
+
+
+.prediction-button {
+    width: 100%;
+    height: 2.5rem;
+    background-color: rgb(255, 193, 7); /* red-900 */
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 3px;
+    margin-top: 1.25rem;
+    cursor: pointer;
+}
+
+.prediction-button:hover {
+    background-color: rgba(255, 193, 7, 0.885);
+}
