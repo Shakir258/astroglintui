@@ -3,14 +3,16 @@ import Header from "./pages/Header";
 import Contact from "./pages/Contact";
 import "./index.css";
 
-import Compatiblity from "./pages/Compatiblity";
+import Compatiblity from "./components/Compatiblity";
 import AuthPopup from "./components/loginSignup/AuthPopup";
 import SearchBar from "./components/SearchBar";
 import { useState } from "react";
 import Prediction from "./components/Prediction";
+import Compatibility from "./components/Compatiblity";
 
 function App() {
   const [showPopup, setShowPopup] = useState(false);
+  const [a, setA] = useState(true);
   return (
     <div className="w-[100vw] min-h-[100vh]">
       <Header setShowPopup={setShowPopup} />
@@ -23,8 +25,10 @@ function App() {
         <Route path="/contact" element={<Contact />} />
       </Routes>
       <div className="flex ">
-        <Prediction/>
-        <Prediction/>
+        <Prediction setShowPopup={setShowPopup} />
+        {/* <Prediction setShowPopup={setShowPopup} /> */}
+        <Compatibility setShowPopup={setShowPopup}/>
+        
       </div>
     </div>
   );
